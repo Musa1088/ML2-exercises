@@ -1,10 +1,13 @@
 #include <iostream>
-#include <mnist_loader.hxx>
-#include "mnist_utils.hxx"
-#include "dnf.hxx"
-#include "algorithms.hxx"
-#include "log.hxx"
+#include "../include/mnist_loader.hxx"
+#include "../include/mnist_utils.hxx"
+#include "../include/dnf.hxx"
+#include "../include/algorithms.hxx"
+#include "../include/log.hxx"
 #include "filesystem"
+#include <sstream>
+#include <iomanip>
+
 
 std::string GetCurrentTimeForFileName()
 {
@@ -52,7 +55,8 @@ void evaluateDNFs(
 int main() {
     size_t localSearchMaxEliminatedVariablesPerIteration = 10000;
     size_t numElementsPerDigit = 50;
-    std::filesystem::path filePath = "../results/" + GetCurrentTimeForFileName() + ".txt";
+    std::string currentTime = GetCurrentTimeForFileName();
+    std::filesystem::path filePath = "../results/" + currentTime + ".txt";
 
     int digits[] = {5, 9};
 
